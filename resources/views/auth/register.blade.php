@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.scaffold')
+@push('title')
+    {{ $title ?? '' }}
+@endpush
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

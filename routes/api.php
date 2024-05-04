@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::controller(CategoryController::class)->prefix('admin')->group(function () {
+
+// Category
+Route::get('category' , 'index');
+Route::post('category/store' , 'store');
+Route::post('category/update' , 'update');
+Route::get('category/delete' , 'delete');
+
 });
